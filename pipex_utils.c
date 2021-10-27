@@ -6,7 +6,7 @@
 /*   By: yshimazu <yshimazu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:43:06 by yshimazu          #+#    #+#             */
-/*   Updated: 2021/09/22 13:09:52 by yshimazu         ###   ########.fr       */
+/*   Updated: 2021/10/25 15:06:33 by yshimazu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ char	*get_path(char *cmd, char **envp)
 	i = 0;
 	while (envp[i] && ft_strncmp(envp[i], "PATH=", 5))
 		i++;
+	if (!envp[i])
+		return (NULL);
 	path = envp[i] + 5;
 	path_each = ft_split(path, ':');
 	i = -1;
